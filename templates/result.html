@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Prediction Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='Style.css') }}">
+</head>
+
+<body>
+    <div class="card result-card">
+
+        <h1 class="result-title">✨ Predicted Rating ✨</h1>
+
+        <div class="rating-box excellent">
+            <h2 class="rating-value">{{ rating }}</h2>
+            <p class="rating-stars">{{ stars }}</p>
+            <p class="rating-text">Predicted rating for your Restaurant</p>
+        </div>
+
+        <div class="btn-center">
+            <a href="/" class="btn return-btn">🔙 Predict Again</a>
+        </div>
+
+    </div>
+</body>
+</html>

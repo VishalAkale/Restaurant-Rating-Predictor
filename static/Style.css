@@ -1,0 +1,193 @@
+/* ===== Global Styles ===== */
+body {
+    font-family: Arial, sans-serif;
+    background: #e0f7fa; /* soft sky-blue */
+    margin: 0;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+/* ===== Card ===== */
+.card {
+    background: linear-gradient(145deg, #e0f7fa, #ffffff); /* gradient sky-blue to white */
+    width: 100%;
+    max-width: 520px;
+    padding: 28px;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* Title */
+.title {
+    text-align: center;
+    margin-bottom: 22px;
+    font-size: 26px;
+    color: #007c91; /* dark cyan text */
+}
+
+/* ===== FORM GRID ===== */
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+
+/* Full width rows */
+.full {
+    grid-column: span 2;
+}
+
+/* Input Fields */
+.field {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.field label {
+    margin-bottom: 6px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #007c91;
+}
+
+.field input,
+.field select {
+    padding: 12px 12px 14px 12px; /* extra bottom padding for autocomplete */
+    border: 1px solid #b2ebf2;
+    border-radius: 10px;
+    font-size: 15px;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #e0f7fa; /* light cyan */
+    transition: all 0.3s ease;
+}
+
+.field input:focus,
+.field select:focus {
+    outline: none;
+    border-color: #00acc1; /* darker cyan */
+    box-shadow: 0 0 8px #00acc1;
+}
+
+/* ===== Autocomplete Dropdown Fix ===== */
+.autocomplete-box {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background: #ffffff;
+    border: 1px solid #b2ebf2;
+    border-top: none;
+    position: absolute;
+    top: 100%;              /* dropdown appears just below input */
+    left: 0;
+    width: 100%;
+    max-height: 160px;
+    overflow-y: auto;
+    z-index: 9999;          /* on top of other elements */
+    display: none;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.autocomplete-box li {
+    padding: 10px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.autocomplete-box li:hover {
+    background: #b2ebf2;
+}
+
+/* Highlight text */
+.highlight {
+    font-weight: bold;
+    color: #007c91;
+}
+
+/* Main Form Button */
+.btn {
+    grid-column: span 2;
+    padding: 14px;
+    font-size: 18px;
+    border: none;
+    border-radius: 12px;
+    background: #00bcd4; /* Cyan */
+    color: #000;
+    cursor: pointer;
+    width: 100%;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background: #00acc1;
+}
+
+/* ===== Result Page ===== */
+.result-card {
+    max-width: 420px;
+    margin: 0 auto;
+    text-align: center;
+    background: linear-gradient(145deg, #e0f7fa, #ffffff);
+    padding: 28px;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.rating-box {
+    padding: 25px;
+    margin: 20px 0;
+    border-radius: 20px;
+    background: linear-gradient(145deg, #00bcd4, #b2ebf2); /* cyan gradient */
+    color: #000;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.rating-value {
+    font-size: 52px;
+    margin: 0;
+    color: #004d55;
+}
+
+.rating-text {
+    font-size: 18px;
+    margin-top: 5px;
+    color: #004d55;
+}
+
+/* Predict Again Button */
+.return-btn {
+    display: block;
+    width: 70%;
+    margin: 15px auto 0 auto;
+    padding: 12px 0;
+    background: #00bcd4;
+    color: #000;
+    font-size: 17px;
+    border-radius: 12px;
+    text-decoration: none !important;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.return-btn:hover {
+    background: #00acc1;
+}
+
+/* Mobile Responsive */
+@media (max-width: 640px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+    .btn {
+        grid-column: span 1;
+    }
+    .return-btn {
+        width: 80%;
+    }
+}

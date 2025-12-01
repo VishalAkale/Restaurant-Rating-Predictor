@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Restaurant Rating Predictor</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='Style.css') }}">
+</head>
+
+<body>
+
+  <div class="card">
+    <h1 class="title">🍽 Restaurant Rating Predictor</h1>
+
+    <form action="/predict" method="POST" class="grid">
+
+      <!-- ERROR MESSAGE -->
+      {% if error %}
+      <div style="color: red; font-weight: bold; grid-column: span 2; margin-bottom: 10px;">
+          {{ error }}
+      </div>
+      {% endif %}
+
+      <!-- Cuisine -->
+      <div class="field">
+        <label>Cuisine Type</label>
+        <input type="text" id="cuisineInput" name="cuisine" placeholder="e.g., Italian, Indian" required value="{{ cuisine | default('') }}">
+        <ul id="suggestions" class="autocomplete-box"></ul>
+      </div>
+
+      <!-- City -->
+      <div class="field">
+        <label>City</label>
+        <input type="text" id="cityInput" name="city" placeholder="Enter city" required value="{{ city | default('') }}">
+        <ul id="citySuggestions" class="autocomplete-box"></ul>
+      </div>
+
+      <!-- Price Range -->
+      <div class="field">
+        <label>Price Range</label>
+        <select name="price" required>
+          <option value="1" {% if price=='1' %}selected{% endif %}>1 - Cheapest</option>
+          <option value="2" {% if price=='2' %}selected{% endif %}>2 - Affordable</option>
+          <option value="3" {% if price=='3' %}selected{% endif %}>3 - Moderate</option>
+          <option value="4" {% if price=='4' %}selected{% endif %}>4 - Expensive</option>
+        </select>
+      </div>
+
+      <!-- Votes -->
+      <div class="field">
+        <label>Votes</label>
+        <input type="number" name="votes" placeholder="Number of votes" required value="{{ votes | default('') }}">
+      </div>
+
+      <!-- Online Delivery -->
+      <div class="field full">
+        <label>Has Online Delivery?</label>
+        <select name="online" required>
+          <option value="Yes" {% if online=='Yes' %}selected{% endif %}>Yes</option>
+          <option value="No" {% if online=='No' %}selected{% endif %}>No</option>
+        </select>
+      </div>
+
+      <button type="submit" class="btn">Predict Rating 🔮</button>
+
+    </form>
+  </div>
+
+  <script src="{{ url_for('static', filename='autocomplete.js') }}"></script>
+</body>
+</html>
